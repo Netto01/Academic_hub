@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Hub</title> <link rel="stylesheet" href="style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1FESZWGSE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-E1FESZWGSE');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="logo.png" alt="Logo Academic Hub" class="logo"> <h1>Academic Hub</h1> <button id="themeToggle" aria-label="Alternar tema">🌙</button>
+            </div>
+            <p>
+                Bem-vindo ao Academic Hub! Um hub onde você encontrará uma coleção de ferramentas, materiais acadêmicos e recursos online 
+                para facilitar seu dia a dia como estudante. Use a barra de busca para encontrar links específicos ou filtre por 
+                categorias. Todos os links são organizados para você acessar de forma rápida e prática.
+            </p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="links">Links</button>
+            <button class="tab-button" data-tab="fontes-pesquisa">Fontes de Pesquisas Acadêmicas</button>
+            <button class="tab-button" data-tab="canais-uteis">Canais úteis do youtube</button>
+            <button class="tab-button" data-tab="material-academico">Material Acadêmico</button>
+        </div>
+
+        <div id="links" class="tab-content active">
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchBar" placeholder="Qual serviço você procura?">
+                    <button id="searchButton">🔍</button>
+                </div>
+                
+                <div class="filter-container">
+                    <button class="filter-button active" data-category="all">Todos</button>
+                    <button class="filter-button" data-category="tecnologia">Tecnologia</button>
+                    <button class="filter-button" data-category="educacao">Educação</button>
+                    <button class="filter-button" data-category="ferramentas">Ferramentas</button>
+                    <button class="filter-button" data-category="design">Design</button>
+                    <button class="filter-button" data-category="financas">Finanças</button>
+                </div>
+            </div>
+
+            <div id="results" class="results-container"></div>
+        </div>
+
+        <div id="fontes-pesquisa" class="tab-content">
+            <h2>Fontes de Pesquisas Acadêmicas</h2>
+            <p>Aqui você encontrará links para fontes de pesquisas acadêmicas, como artigos científicos, revistas, e bases de dados.</p>
+            <ul>
+                <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pubmed" target="_blank">PubMed</a></li>
+                <li><a href="https://www.sciencedirect.com" target="_blank">ScienceDirect</a></li>
+                <li><a href="https://www.jstor.org" target="_blank">JSTOR</a></li>
+                <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
+                <li><a href="https://www.academia.edu" target="_blank">Academia.edu</a></li>
+            </ul>
+        </div>
+
+        <div id="canais-uteis" class="tab-content">
+            <h2>Canais Úteis do YouTube</h2>
+            <p class="introducao">Aqui estão alguns canais do YouTube que fornecem tutoriais úteis:</p>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/@CanalDescomplicadoCiencia" 
+                       target="_blank" 
+                       class="titulo-canal"
+                       rel="noopener noreferrer">
+                        Canal Descomplicado
+                    </a>
+                    <p class="descricao-canal">
+                        vídeos acadêmicos de como Como fazer um TCC | Artigo Científico: playlist sobre metodologia científica, trabalho acadêmico, TCC, artigo científico, dissertação de mestrado e tese doutorado.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@HashtagTreinamentos" 
+                       target="_blank" 
+                       class="titulo-canal"
+                       rel="noopener noreferrer">
+                        Hashtag Treinamentos
+                    </a>
+                    <p class="descricao-canal">
+                        Cursos práticos de Excel, análise de dados e habilidades digitais.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="material-academico" class="tab-content">
+            <h2>Material Acadêmico</h2>
+            <p>No link abaixo você encontrará materiais diversos (livros de metodologia, livros de neuropsicologia, neurociências entre outros), aproveite e bons estudos!!</p>
+            <ul>
+                <li><a href="https://drive.google.com/drive/folders/1UXp8E2wo1nTvOy9Jl9vv8_eWwO4xNprv?usp=sharing" target="_blank">Acesse nosso Drive de Materiais Acadêmicos</a></li>
+            </ul>
+            <p>Caso não tenha encontrado o material desejado, <a href="https://docs.google.com/forms/d/e/1FAIpQLScfUF04b5OHOwZDapVRJRW-EhL2rLWOcIV2qGAd5N95Q4940A/viewform?usp=header" target="_blank">clique aqui para sugerir a adição do material no drive</a>.</p>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

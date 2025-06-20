@@ -1,0 +1,828 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 15px; /* Espaçamento entre a logo, título e botão */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+}
+
+.logo {
+    max-width: 80px; /* Defina a largura máxima da sua logo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 10px; /* Adiciona um pequeno espaço à direita da logo */
+}
+
+/* Se você quiser a logo acima do título em vez de ao lado, você pode ajustar o flex-direction */
+@media (max-width: 480px) { /* Exemplo: em telas menores que 480px */
+    .header-content {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        gap: 5px; /* Reduz o espaçamento entre itens empilhados */
+    }
+
+    .logo {
+        margin-right: 0; /* Remove a margem direita quando empilhado */
+        margin-bottom: 10px; /* Adiciona margem abaixo da logo */
+    }
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-background: #ffffff;
+    --card-border: #ddd;
+    --button-background: #000000;
+    --button-text: #ffffff;
+    --button-hover-background: #ffffff;
+    --button-hover-text: #000000;
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-background: #1e1e1e;
+    --card-border: #333;
+    --button-background: #ffffff;
+    --button-text: #000000;
+    --button-hover-background: #000000;
+    --button-hover-text: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin: 0;
+    text-align: center; /* Centraliza o título h1 */
+}
+
+/* Texto explicativo */
+.header p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    text-align: center; /* Centraliza o parágrafo */
+}
+
+/* Botão de alternância de tema */
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+/* Abas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--card-background);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background: var(--button-background);
+    color: var(--button-text);
+}
+
+.tab-button:hover {
+    background: var(--button-hover-background);
+    color: var(--button-hover-text);
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+    display: none;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilos específicos para a aba "Fontes Acadêmicas" */
+#fontes-pesquisa h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 10px;
+    text-align: center; /* Centraliza o título h2 */
+}
+
+#fontes-pesquisa p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    text-align: center; /* Centraliza o parágrafo */
+}
+
+#fontes-pesquisa ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#fontes-pesquisa ul li {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--background-color);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#fontes-pesquisa ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--button-background);
+}
+
+#fontes-pesquisa ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+#fontes-pesquisa ul li a:hover {
+    color: var(--button-background);
+}
+
+#fontes-pesquisa ul li a::before {
+    content: "🔗";
+    font-size: 1.2rem;
+}
+
+/* Controles */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#searchBar {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid var(--card-border);
+    border-right: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 1rem;
+    background: var(--card-background);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+#searchBar:focus {
+    outline: none;
+    border-color: var(--text-color);
+}
+
+#searchButton {
+    padding: 12px 25px;
+    border: 1px solid var(--button-background);
+    background: var(--button-background);
+    color: var(--button-text);
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#searchButton:hover {
+    background: var(--button-hover-background);
+    color: var(--button-hover-text);
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-button {
+    padding: 8px 16px;
+    border: 1px solid var(--card-border);
+    background: var(--card-background);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-button.active {
+    background: var(--button-background);
+    color: var(--button-text);
+    border-color: var(--button-background);
+}
+
+/* Resultados */
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 15px 0;
+}
+
+.card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: var(--button-hover-background);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    text-align: center; /* Centraliza o título h3 */
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 15px;
+    text-align: center; /* Centraliza o parágrafo */
+}
+
+.card .description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-align: center; /* Centraliza a descrição */
+}
+
+/* Botões dentro do card */
+.link-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.link-actions a,
+.link-actions .copy-url {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.link-actions a {
+    text-decoration: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    background: var(--card-background);
+}
+
+.link-actions a:hover {
+    background: var(--button-background);
+    color: var(--button-text);
+    border-color: var(--button-background);
+}
+
+.link-actions .copy-url {
+    border: 1px solid var(--card-border);
+    background: var(--card-background);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.link-actions .copy-url:hover {
+    background: var(--button-background);
+    color: var(--button-text);
+    border-color: var(--button-background);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-background: #ffffff;
+    --card-border: #ddd;
+    --button-background: #000000;
+    --button-text: #ffffff;
+    --button-hover-background: #ffffff;
+    --button-hover-text: #000000;
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-background: #1e1e1e;
+    --card-border: #333;
+    --button-background: #ffffff;
+    --button-text: #000000;
+    --button-hover-background: #000000;
+    --button-hover-text: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+}
+
+.header p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--card-background);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background: var(--button-background);
+    color: var(--button-text);
+}
+
+.tab-button:hover {
+    background: var(--button-hover-background);
+    color: var(--button-hover-text);
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilo Clean para "Canais Úteis" - Versão Final */
+#canais-uteis {
+    padding: 2.5rem 1rem;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+#canais-uteis h2 {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin: 0 auto 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#canais-uteis h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--button-background);
+    opacity: 0.3;
+    transition: width 0.3s ease;
+}
+
+#canais-uteis p.introducao {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    text-align: center;
+    margin: 0 auto 2.8rem;
+    line-height: 1.65;
+    max-width: 600px;
+    padding: 0 1rem;
+}
+
+#canais-uteis ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.8rem;
+}
+
+#canais-uteis ul li {
+    padding: 1.8rem;
+    background: var(--background-color);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+#canais-uteis ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-color: var(--button-background);
+}
+
+#canais-uteis ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    transition: all 0.25s ease;
+    margin: 0 auto 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-bottom: 0.6rem;
+    width: fit-content;
+}
+
+#canais-uteis ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 2px;
+    background: var(--button-background);
+    opacity: 0.35;
+    transition: all 0.3s ease;
+}
+
+#canais-uteis ul li a:hover {
+    color: var(--button-background);
+    letter-spacing: 1px;
+}
+
+#canais-uteis ul li a:hover::after {
+    width: 65px;
+    opacity: 0.7;
+}
+
+#canais-uteis ul li p.descricao-canal {
+    font-size: 0.92rem;
+    color: var(--text-color);
+    opacity: 0.78;
+    margin: 1.4rem auto 0;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 520px;
+    padding-top: 1rem;
+    position: relative;
+}
+
+#canais-uteis ul li p.descricao-canal::before {
+    content: '';
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: var(--card-border);
+    margin: 0 auto 1.2rem;
+    opacity: 0.25;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    #canais-uteis {
+        padding: 2rem 1.2rem;
+        margin: 2.5rem auto;
+    }
+    
+    #canais-uteis ul {
+        gap: 1.5rem;
+    }
+    
+    #canais-uteis ul li {
+        padding: 1.6rem;
+    }
+}
+
+@media (max-width: 680px) {
+    #canais-uteis h2 {
+        font-size: 1.5rem;
+    }
+    
+    #canais-uteis ul li a {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #canais-uteis {
+        padding: 1.8rem 1rem;
+    }
+    
+    #canais-uteis ul li {
+        padding: 1.4rem;
+    }
+    
+    #canais-uteis ul li a {
+        font-size: 1rem;
+    }
+}
+
+/* Seção de Doações */
+.donation-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.donation-section h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: center; /* Centraliza o título h2 */
+}
+
+.donation-section p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza o parágrafo */
+}
+
+.donation-note {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    margin-top: 15px;
+    text-align: center; /* Centraliza a nota */
+}
+
+.donation-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4757;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.donation-button:hover {
+    background: #e84118;
+    transform: translateY(-2px);
+}
+
+.donation-button:active {
+    transform: translateY(0);
+}
+
+/* Estilos Específicos para a aba de Material Acadêmico */
+/* Estas regras aplicam-se a QUALQUER .tab-content, mas você pode sobrescrever */
+#material-academico h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#material-academico p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+#material-academico ul {
+    list-style: disc; /* Ou 'none' se preferir remover os marcadores */
+    margin-left: 20px;
+    padding: 0;
+}
+
+#material-academico li {
+    margin-bottom: 8px;
+}
+
+#material-academico a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#material-academico a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #searchBar {
+        padding: 10px 15px;
+    }
+
+    #searchButton {
+        padding: 10px 20px;
+    }
+
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+
+    #fontes-pesquisa {
+        padding: 20px;
+    }
+
+    #fontes-pesquisa h2 {
+        font-size: 1.5rem;
+    }
+
+    #fontes-pesquisa ul li {
+        padding: 12px;
+    }
+
+    #fontes-pesquisa ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .link-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .link-actions a,
+    .link-actions .copy-url {
+        width: 100%;
+    }
+
+    #fontes-pesquisa {
+        padding: 15px;
+    }
+
+    #fontes-pesquisa h2 {
+        font-size: 1.3rem;
+    }
+
+    #fontes-pesquisa ul li {
+        padding: 10px;
+    }
+
+    #fontes-pesquisa ul li a {
+        font-size: 0.85rem;
+    }
+}
