@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .header-content {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
@@ -121,6 +122,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha */
 }
 
 .tab-button {
@@ -132,6 +134,8 @@ h1 {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
+    white-space: nowrap; /* Evita que o texto quebre linha em si mesmo inicialmente */
+    flex-shrink: 0; /* Impede que os botões encolham mais do que o conteúdo inicial */
 }
 
 .tab-button.active {
@@ -232,18 +236,21 @@ h1 {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    flex-direction: column; /* Empilha a barra de pesquisa e o botão */
+    gap: 10px; /* Espaçamento entre eles */
 }
 
 #searchBar {
     flex: 1;
     padding: 12px 20px;
     border: 1px solid var(--card-border);
-    border-right: none;
-    border-radius: 30px 0 0 30px;
+    border-right: 1px solid var(--card-border); /* Adiciona borda completa */
+    border-radius: 30px; /* Arredonda completamente a barra */
     font-size: 1rem;
     background: var(--card-background);
     color: var(--text-color);
     transition: border-color 0.3s ease;
+    text-align: center; /* Centraliza o placeholder */
 }
 
 #searchBar:focus {
@@ -256,9 +263,10 @@ h1 {
     border: 1px solid var(--button-background);
     background: var(--button-background);
     color: var(--button-text);
-    border-radius: 0 30px 30px 0;
+    border-radius: 30px; /* Arredonda completamente o botão */
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%; /* Ocupa a largura total */
 }
 
 #searchButton:hover {
@@ -282,6 +290,8 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem;
+    flex-grow: 1; /* Permite que os botões cresçam */
+    min-width: 80px; /* Largura mínima para cada filtro */
 }
 
 .filter-button.active {
@@ -341,6 +351,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     margin-top: 15px;
+    flex-direction: column; /* Empilha os botões de ação do link */
 }
 
 .link-actions a,
@@ -351,6 +362,7 @@ h1 {
     border-radius: 20px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    width: 100%; /* Ocupa a largura total do card */
 }
 
 .link-actions a {
@@ -377,124 +389,6 @@ h1 {
     background: var(--button-background);
     color: var(--button-text);
     border-color: var(--button-background);
-}
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --card-background: #ffffff;
-    --card-border: #ddd;
-    --button-background: #000000;
-    --button-text: #ffffff;
-    --button-hover-background: #ffffff;
-    --button-hover-text: #000000;
-}
-
-[data-theme="dark"] {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --card-background: #1e1e1e;
-    --card-border: #333;
-    --button-background: #ffffff;
-    --button-text: #000000;
-    --button-hover-background: #000000;
-    --button-hover-text: #ffffff;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    text-align: center;
-}
-
-.header {
-    margin-bottom: 30px;
-}
-
-.header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin: 0;
-    text-align: center;
-}
-
-.header p {
-    font-size: 1rem;
-    color: var(--text-color);
-    opacity: 0.8;
-    max-width: 800px;
-    margin: 0 auto 20px;
-    line-height: 1.6;
-    text-align: center;
-}
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    padding: 10px 20px;
-    border: none;
-    background: var(--card-background);
-    color: var(--text-color);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.tab-button.active {
-    background: var(--button-background);
-    color: var(--button-text);
-}
-
-.tab-button:hover {
-    background: var(--button-hover-background);
-    color: var(--button-hover-text);
-}
-
-.tab-content {
-    display: none;
-    padding: 30px;
-    background: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.tab-content.active {
-    display: block;
 }
 
 /* Estilo Clean para "Canais Úteis" - Versão Final */
@@ -623,46 +517,6 @@ h1 {
     opacity: 0.25;
 }
 
-/* Responsividade */
-@media (max-width: 800px) {
-    #canais-uteis {
-        padding: 2rem 1.2rem;
-        margin: 2.5rem auto;
-    }
-    
-    #canais-uteis ul {
-        gap: 1.5rem;
-    }
-    
-    #canais-uteis ul li {
-        padding: 1.6rem;
-    }
-}
-
-@media (max-width: 680px) {
-    #canais-uteis h2 {
-        font-size: 1.5rem;
-    }
-    
-    #canais-uteis ul li a {
-        font-size: 1.05rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #canais-uteis {
-        padding: 1.8rem 1rem;
-    }
-    
-    #canais-uteis ul li {
-        padding: 1.4rem;
-    }
-    
-    #canais-uteis ul li a {
-        font-size: 1rem;
-    }
-}
-
 /* Seção de Doações */
 .donation-section {
     margin-top: 40px;
@@ -751,78 +605,360 @@ h1 {
     text-decoration: underline;
 }
 
-/* Responsividade */
+/* --- OTIMIZAÇÕES GERAIS E DO MENU PARA MOBILE --- */
 @media (max-width: 768px) {
+    body {
+        padding: 15px; /* Reduz o padding geral do body */
+    }
+
     .container {
-        padding: 15px;
+        padding: 10px; /* Reduz o padding do container para mais espaço */
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Títulos um pouco menores */
     }
 
-    #searchBar {
-        padding: 10px 15px;
+    .header p {
+        font-size: 0.9rem; /* Texto explicativo um pouco menor */
+        margin-bottom: 15px; /* Ajusta a margem */
     }
 
-    #searchButton {
-        padding: 10px 20px;
+    /* Ajustes para as abas em telas menores */
+    .tabs {
+        gap: 8px; /* Reduz o espaçamento entre os botões */
+        margin-bottom: 15px; /* Ajusta a margem inferior */
     }
 
-    .results-container {
-        grid-template-columns: 1fr;
+    .tab-button {
+        padding: 8px 15px; /* Diminui o padding dos botões das abas */
+        font-size: 0.95rem; /* Fonte ligeiramente menor para os botões */
+        flex-grow: 1; /* Permite que os botões cresçam para ocupar espaço */
+        min-width: 130px; /* Garante uma largura mínima para cada botão, ajustado para textos mais longos */
+        white-space: normal; /* Permite que o texto quebre linha para caber */
     }
 
-    #fontes-pesquisa {
+    /* Reduz o padding geral do conteúdo da aba */
+    .tab-content {
         padding: 20px;
+        border-radius: 8px; /* Bordas um pouco menos arredondadas */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
     }
 
+    /* Otimização da seção "Fontes Acadêmicas" */
     #fontes-pesquisa h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem; /* Título um pouco menor */
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+
+    #fontes-pesquisa p {
+        font-size: 0.9rem; /* Texto descritivo menor */
+        margin-bottom: 20px;
     }
 
     #fontes-pesquisa ul li {
-        padding: 12px;
+        padding: 12px; /* Reduz o padding de cada item da lista */
+        margin-bottom: 10px; /* Reduz o espaçamento entre os itens */
     }
 
     #fontes-pesquisa ul li a {
-        font-size: 0.9rem;
+        font-size: 0.95rem; /* Tamanho da fonte dos links */
+        gap: 8px; /* Reduz o espaçamento entre o ícone e o texto */
     }
-}
 
-@media (max-width: 480px) {
+    #fontes-pesquisa ul li a::before {
+        font-size: 1rem; /* Tamanho do ícone ajustado */
+    }
+
+    /* Otimização da seção "Canais Úteis" */
+    #canais-uteis {
+        padding: 2rem 1rem; /* Garante um padding consistente */
+        margin: 2rem auto; /* Reduz a margem superior/inferior */
+    }
+
+    #canais-uteis h2 {
+        font-size: 1.6rem; /* Título ligeiramente menor */
+        margin-bottom: 1.5rem;
+    }
+
+    #canais-uteis h2::after {
+        bottom: -0.6rem; /* Ajusta a posição da linha abaixo do título */
+        width: 50px; /* Largura da linha */
+    }
+
+    #canais-uteis p.introducao {
+        font-size: 0.95rem; /* Texto de introdução menor */
+        margin-bottom: 2rem;
+    }
+
+    #canais-uteis ul {
+        gap: 1.2rem; /* Reduz o espaçamento entre os itens da lista */
+    }
+
+    #canais-uteis ul li {
+        padding: 1.5rem; /* Reduz o padding de cada card */
+    }
+
+    #canais-uteis ul li a {
+        font-size: 1rem; /* Fonte menor para os títulos dos canais */
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    #canais-uteis ul li a::after {
+        width: 40px; /* Largura da linha abaixo do link */
+    }
+
+    #canais-uteis ul li p.descricao-canal {
+        font-size: 0.88rem; /* Fonte da descrição do canal menor */
+        margin: 1rem auto 0;
+        padding-top: 0.8rem;
+    }
+
+    /* Otimização da barra de pesquisa e filtros */
+    .search-container {
+        max-width: 90%; /* Ajusta a largura máxima */
+    }
+
+    #searchBar {
+        padding: 10px 15px; /* Ajusta o padding */
+    }
+
+    #searchButton {
+        padding: 10px 20px; /* Ajusta o padding */
+    }
+
+    .filter-container {
+        gap: 8px; /* Reduz o espaçamento entre os filtros */
+        padding: 0 10px; /* Adiciona um pequeno padding lateral */
+    }
+
     .filter-button {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        padding: 7px 14px; /* Ajusta o padding dos botões de filtro */
+        font-size: 0.85rem; /* Fonte menor para os filtros */
+    }
+
+    /* Resultados */
+    .results-container {
+        grid-template-columns: 1fr; /* Força uma coluna única no mobile */
+        gap: 15px; /* Reduz o espaçamento entre os cards */
+        padding: 10px 0; /* Ajusta o padding vertical */
     }
 
     .card {
-        padding: 15px;
+        padding: 18px; /* Reduz o padding interno do card */
+        border-radius: 10px; /* Bordas um pouco menos arredondadas */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); /* Sombra mais suave */
+    }
+
+    .card h3 {
+        font-size: 1.05rem; /* Título do card ligeiramente menor */
+        margin-bottom: 10px;
+    }
+
+    .card p, .card .description {
+        font-size: 0.8rem; /* Texto do card menor */
+        margin-bottom: 12px;
+        line-height: 1.5;
     }
 
     .link-actions {
-        flex-direction: column;
-        gap: 8px;
+        gap: 8px; /* Espaçamento entre os botões */
+        margin-top: 12px;
     }
 
     .link-actions a,
     .link-actions .copy-url {
-        width: 100%;
+        padding: 10px 15px; /* Aumenta o padding para facilitar o toque */
+        font-size: 0.85rem; /* Fonte menor para os botões de ação */
+        border-radius: 25px; /* Mais arredondado para botões */
     }
 
-    #fontes-pesquisa {
+    /* Seção de Doações */
+    .donation-section {
+        margin-top: 30px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .donation-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .donation-section p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .donation-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        gap: 6px;
+    }
+
+    .donation-note {
+        font-size: 0.75rem;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Títulos menores para telas muito pequenas */
+    }
+
+    .header-content {
+        flex-direction: column; /* Garante que logo e título empilhem */
+        gap: 10px;
+    }
+
+    .logo {
+        margin-right: 0; /* Remove a margem direita quando empilhado */
+        margin-bottom: 10px; /* Espaçamento abaixo da logo quando empilhada */
+    }
+
+    .header p {
+        font-size: 0.85rem; /* Texto explicativo menor */
+        padding: 0 5px; /* Adiciona um pequeno padding lateral */
+    }
+
+    /* Otimização específica para telas muito pequenas para os botões das abas */
+    .tabs {
+        gap: 6px; /* Reduz ainda mais o espaçamento */
+        margin-bottom: 10px;
+        flex-direction: row; /* Mantém a linha, mas com quebra */
+        justify-content: space-around; /* Distribui os itens na linha */
+    }
+    .tab-button {
+        font-size: 0.85rem; /* Fonte ainda menor */
+        padding: 7px 12px; /* Padding mais justo */
+        min-width: unset; /* Remove min-width fixo para permitir mais flexibilidade */
+        flex-basis: auto; /* Deixa o navegador calcular o tamanho base */
+        flex-grow: 1; /* Permite crescimento */
+    }
+    /* Regra para garantir que os botões não fiquem muito pequenos ou grandes demais */
+    .tab-button:nth-child(2), /* "Fontes de Pesquisas Acadêmicas" */
+    .tab-button:nth-child(3) { /* "Canais úteis do youtube" */
+        flex-basis: 48%; /* Tenta ocupar quase metade da linha */
+    }
+    .tab-button:nth-child(1), /* "Links" */
+    .tab-button:nth-child(4) { /* "Material Acadêmico" */
+        flex-basis: 40%; /* Tenta ocupar um pouco menos de metade */
+    }
+
+
+    /* Padding ainda menor para telas muito pequenas */
+    .tab-content {
         padding: 15px;
     }
 
+    /* Otimização específica para telas muito pequenas para as fontes de pesquisa */
     #fontes-pesquisa h2 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    #fontes-pesquisa p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
     }
 
     #fontes-pesquisa ul li {
         padding: 10px;
+        margin-bottom: 8px;
     }
 
     #fontes-pesquisa ul li a {
+        font-size: 0.9rem;
+        flex-direction: column; /* Empilha ícone e texto do link */
+        align-items: center; /* Centraliza quando empilhado */
+        text-align: center; /* Centraliza o texto do link */
+    }
+
+    #fontes-pesquisa ul li a::before {
+        margin-bottom: 5px; /* Espaçamento entre ícone e texto */
+    }
+
+    /* Otimização específica para telas muito pequenas para os canais úteis */
+    #canais-uteis {
+        padding: 1.5rem 0.8rem;
+        margin: 1.5rem auto;
+    }
+
+    #canais-uteis h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    #canais-uteis ul li {
+        padding: 1.2rem;
+    }
+
+    #canais-uteis ul li a {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+    }
+
+    #canais-uteis ul li p.descricao-canal {
+        font-size: 0.8rem;
+        margin: 0.8rem auto 0;
+        padding-top: 0.6rem;
+    }
+
+    /* Otimização específica para telas muito pequenas para a barra de pesquisa e filtros */
+    .search-container {
+        max-width: 100%;
+        gap: 8px;
+    }
+
+    #searchBar {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    #searchButton {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .filter-button {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        min-width: 60px;
+    }
+
+    /* Otimização específica para telas muito pequenas para os cards */
+    .card {
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card p, .card .description {
+        font-size: 0.75rem;
+    }
+
+    .link-actions a,
+    .link-actions .copy-url {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Seção de Doações */
+    .donation-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .donation-section p {
+        font-size: 0.8rem;
+    }
+
+    .donation-button {
+        padding: 8px 16px;
         font-size: 0.85rem;
     }
 }
