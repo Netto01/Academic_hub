@@ -36,22 +36,24 @@
     --background-color: #ffffff;
     --text-color: #000000;
     --card-background: #ffffff;
-    --card-border: #ddd;
+    --card-border: #99ccff; /* AZUL CLARO PARA BORDA NO TEMA CLARO */
     --button-background: #000000;
     --button-text: #ffffff;
     --button-hover-background: #ffffff;
     --button-hover-text: #000000;
+    --blue-border-color: #007bff; /* Nova variável para um azul mais forte para bordas de botão se desejado */
 }
 
 [data-theme="dark"] {
     --background-color: #121212;
     --text-color: #ffffff;
     --card-background: #1e1e1e;
-    --card-border: #333;
+    --card-border: #333; /* Volta para cinza escuro no tema escuro */
     --button-background: #ffffff;
     --button-text: #000000;
     --button-hover-background: #000000;
     --button-hover-text: #ffffff;
+    --blue-border-color: #007bff; /* Mantém a cor para compatibilidade, mas talvez não seja visível */
 }
 
 body {
@@ -127,25 +129,28 @@ h1 {
 
 .tab-button {
     padding: 10px 20px;
-    border: none;
+    /* Antes: border: none; */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para botões de aba no tema claro */
     background: var(--card-background);
     color: var(--text-color);
     border-radius: 20px;
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Evita que o texto quebre linha em si mesmo inicialmente */
-    flex-shrink: 0; /* Impede que os botões encolham mais do que o conteúdo inicial */
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .tab-button.active {
     background: var(--button-background);
     color: var(--button-text);
+    border-color: var(--button-background); /* Borda da cor do background do botão ativo */
 }
 
 .tab-button:hover {
     background: var(--button-hover-background);
     color: var(--button-hover-text);
+    border-color: var(--button-hover-background); /* Borda da cor do background do botão hover */
 }
 
 /* Conteúdo das Abas */
@@ -192,7 +197,8 @@ h1 {
     margin-bottom: 15px;
     padding: 15px;
     background: var(--background-color);
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para itens de lista no tema claro */
     border-radius: 8px;
     transition: all 0.3s ease;
 }
@@ -243,9 +249,9 @@ h1 {
 #searchBar {
     flex: 1;
     padding: 12px 20px;
-    border: 1px solid var(--card-border);
-    border-right: 1px solid var(--card-border); /* Adiciona borda completa */
-    border-radius: 30px; /* Arredonda completamente a barra */
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para searchBar no tema claro */
+    border-radius: 30px;
     font-size: 1rem;
     background: var(--card-background);
     color: var(--text-color);
@@ -263,7 +269,7 @@ h1 {
     border: 1px solid var(--button-background);
     background: var(--button-background);
     color: var(--button-text);
-    border-radius: 30px; /* Arredonda completamente o botão */
+    border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%; /* Ocupa a largura total */
@@ -283,15 +289,16 @@ h1 {
 
 .filter-button {
     padding: 8px 16px;
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para filter-button no tema claro */
     background: var(--card-background);
     color: var(--text-color);
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem;
-    flex-grow: 1; /* Permite que os botões cresçam */
-    min-width: 80px; /* Largura mínima para cada filtro */
+    flex-grow: 1;
+    min-width: 80px;
 }
 
 .filter-button.active {
@@ -310,7 +317,8 @@ h1 {
 
 .card {
     background: var(--card-background);
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para cards no tema claro */
     border-radius: 12px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -367,7 +375,8 @@ h1 {
 
 .link-actions a {
     text-decoration: none;
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para link-actions a no tema claro */
     color: var(--text-color);
     background: var(--card-background);
 }
@@ -379,7 +388,8 @@ h1 {
 }
 
 .link-actions .copy-url {
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para copy-url no tema claro */
     background: var(--card-background);
     color: var(--text-color);
     cursor: pointer;
@@ -444,7 +454,8 @@ h1 {
 #canais-uteis ul li {
     padding: 1.8rem;
     background: var(--background-color);
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para canais-uteis li no tema claro */
     border-radius: 8px;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -522,7 +533,8 @@ h1 {
     margin-top: 40px;
     padding: 20px;
     background: var(--card-background);
-    border: 1px solid var(--card-border);
+    /* Antes: border: 1px solid var(--card-border); */
+    border: 1px solid var(--blue-border-color); /* Contorno azul para donation-section no tema claro */
     border-radius: 12px;
     text-align: center;
 }
